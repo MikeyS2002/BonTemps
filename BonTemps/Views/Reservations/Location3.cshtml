@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BonTemps.Models.Reservations>
+
+@{
+    ViewData["Title"] = "Reserveringen";
+}
+
+<h1>Alle reserveringen</h1>
+<br />
+<p>
+    <a class="btn btn-primary" asp-action="Create">Plaats een reservering</a>
+</p>
+<div class="row">
+    <div class="col-md-10">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Persons)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Time)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persons)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ReservationId">Factuur</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ReservationId">Verwijder</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2 filter">
+        <p class="font-weight-bold">Filter op:</p>
+        <a asp-controller="Reservations" asp-action="Index" class="btn btn-primary locatie">Alle Reserveringen</a><br />
+        <a asp-controller="Reservations" asp-action="Today" class="btn btn-primary locatie">Vandaag</a><br />
+        <a asp-controller="Reservations" asp-action="Location1" class="btn btn-primary locatie">Alkmaar</a><br />
+        <a asp-controller="Reservations" asp-action="Location2" class="btn btn-primary locatie">Den Helder</a><br />
+        <a asp-controller="Reservations" asp-action="Location3" class="btn btn-primary locatie">Hoorn</a><br />
+        <a asp-controller="Reservations" asp-action="Location4" class="btn btn-primary locatie">Schagen</a><br />
+        <a asp-controller="Reservations" asp-action="Location5" class="btn btn-primary locatie">Zaandam</a>
+    </div>
+</div>

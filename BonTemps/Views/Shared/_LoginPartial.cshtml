@@ -1,0 +1,21 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<BonTemps.Models.ApplicationUser> signInManager
+@if (signInManager.IsSignedIn(User))
+{
+<form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
+    <ul class="nav navbar-nav">
+        <li class="text-white pt-2 pr-2 font-weight-bold">
+            Hallo, @User.Identity.Name!
+        </li>
+        <li><a class="nav-link text-white font-weight-bold" href="javascript:document.getElementById('logoutForm').submit()">Log uit</a></li>
+    </ul>
+</form>
+} else {
+<ul class="nav navbar-nav">
+    <li>
+        <a class="nav-link text-white font-weight-bold" id="registerLink" asp-controller="Account" asp-action="Register">Registreer</a>
+    </li>
+    <li>
+        <a class="nav-link text-white font-weight-bold" id="loginLink" asp-controller="Account" asp-action="Login">Inloggen</a>
+    </li>
+</ul>
+    }

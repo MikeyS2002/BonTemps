@@ -1,0 +1,24 @@
+﻿@if (User.IsInRole(BonTemps.Utility.Helper.Klant))
+{
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="Reservations" asp-action="JouwReserveringen">Bekijk uw reserveringen</a>
+            </li>
+        </ul>
+    </div>
+}
+@if (User.IsInRole(BonTemps.Utility.Helper.Medewerker))
+{
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="Reservations" asp-action="Index">Reserverigen</a>
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+
+}

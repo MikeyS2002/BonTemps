@@ -1,0 +1,71 @@
+﻿@model BonTemps.Models.Reservations
+
+@{
+    ViewData["Title"] = "Aanmaken";
+}
+
+<h1>Plaats een reservering</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Persons" class="control-label"></label>
+                <input asp-for="Persons" class="form-control" />
+                <span asp-validation-for="Persons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" placeholder="1-10-2021" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <select asp-for="Time" class="form-control">
+                    <option>17:00-20:00</option>
+                    <option>20:00-23:00</option>
+                    <option>17:00-20:00 & 20:00-23:00</option>
+                </select>
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <select asp-for="Location" class="form-control">
+                    <option>Alkmaar</option>
+                    <option>Den Helder</option>
+                    <option>Hoorn</option>
+                    <option>Schagen</option>
+                    <option>Zaandam</option>
+                </select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Comment" class="control-label"></label>
+                <textarea asp-for="Comment" class="form-control" placeholder="Allegiën, dieët, enzovoort" ></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Terug</a>
+</div>
+
